@@ -16,14 +16,14 @@ namespace OnlineAuction.Core.Services
         public BidService(IRepository<Bid> bidRepository, IUnitOfWork unitOfWork, 
             IRepository<Lot> lotRepository, ILotStateRepository lotStateRepository)
         {
-            _lotStateRepository = lotStateRepository ?? throw new ArgumentNullException(nameof(lotStateRepository));
-            _lotRepository = lotRepository ?? throw new ArgumentNullException(nameof(lotRepository));
-            _bidRepository = bidRepository ?? throw new ArgumentNullException(nameof(bidRepository));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _lotStateRepository = lotStateRepository;
+            _lotRepository = lotRepository;
+            _bidRepository = bidRepository;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
-        /// Creates the user bid.
+        /// Creates the user bid with server-side validation.
         /// </summary>
         /// <param name="bid"></param>
         /// <returns>
@@ -65,6 +65,10 @@ namespace OnlineAuction.Core.Services
             return new BidResult { Succeeded = true };
         }
 
+        /// <summary>
+        /// Adds the specific error and changes the succeeded property to false.
+        /// </summary>
+        /// <param name="error"></param>
         private BidResult AddError(string error)
         {
             return new BidResult { Succeeded = false, Error = error };

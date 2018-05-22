@@ -1,4 +1,5 @@
 ﻿using OnlineAuction.Core.Entities;
+using OnlineAuction.Core.Exceptions;
 using OnlineAuction.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,10 @@ namespace OnlineAuction.Core.Services
         public LotService(ILotRepository lotRepository, ILotStateRepository lotStateRepository, 
             IUnitOfWork unitOfWork, IRepository<Category> categoryRepository)
         {
-            _lotRepository = lotRepository ?? throw new ArgumentNullException(nameof(lotRepository));
-            _lotStateRepository = lotStateRepository ?? throw new ArgumentNullException(nameof(lotStateRepository));
-            _categoryRepository = categoryRepository ?? throw new ArgumentNullException(nameof(categoryRepository));
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+            _lotRepository = lotRepository;
+            _lotStateRepository = lotStateRepository;
+            _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -55,6 +56,8 @@ namespace OnlineAuction.Core.Services
         public async Task<Lot> GetLotWithBidsAsync(int id)
         {
             var lot = await _lotRepository.GetLotWithBidsAsync(id);
+            if (lot == null) throw new LotNotFoundException(id);
+
             var activeLotState = await _lotStateRepository.GetStateByNameAsync("Active");
 
             // The second check is for preventing double marking sold lot.
@@ -89,12 +92,20 @@ namespace OnlineAuction.Core.Services
             }
         }
 
+        /// <summary>
+        /// Update the lot.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatedLot"></param>
+        /// <returns>
+        /// Updated lot object.
+        /// </returns>
         public async Task<Lot> UpdateLotAsync(int id, Lot updatedLot)
         {
             if (updatedLot == null) throw new ArgumentNullException(nameof(updatedLot));
 
             var lotToUpdate = await _lotRepository.GetByIdAsync(id);
-            if (lotToUpdate == null) throw new ArgumentNullException(nameof(lotToUpdate));
+            if (lotToUpdate == null) throw new LotNotFoundException(id);
 
             lotToUpdate.LotName = updatedLot.LotName;
             lotToUpdate.Description = updatedLot.Description;
@@ -110,6 +121,10 @@ namespace OnlineAuction.Core.Services
             return lotToUpdate;
         }
 
+        /// <summary>
+        /// Set the lot's state to 'active', so that it can be visible by users.
+        /// </summary>
+        /// <param name="lot"></param>
         private async Task MarkLotAsActive(Lot lot)
         {
             var activeLotState = await _lotStateRepository.GetStateByNameAsync("Active");
@@ -117,6 +132,10 @@ namespace OnlineAuction.Core.Services
             lot.StartTime = DateTime.Now;
         }
 
+        /// <summary>
+        /// Set the lot's state to 'sold'.
+        /// </summary>
+        /// <param name="lot"></param>
         private async Task MarkLotAsSold(Lot lot)
         {
             var soldLotState = await _lotStateRepository.GetStateByNameAsync("Sold");

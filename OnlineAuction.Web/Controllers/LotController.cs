@@ -108,12 +108,7 @@ namespace OnlineAuction.Web.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var lot = await _lotRepository.GetByIdAsync(id);
-
-            if (lot == null)
-                return NotFound();
-
             await _lotService.DeleteLotAsync(lot);
-
             return RedirectToAction("Index", "Manager");
         }
 
@@ -142,7 +137,6 @@ namespace OnlineAuction.Web.Controllers
             return RedirectToAction("Details", new { id = makeBidViewModel.LotID });
         }
 
-        [HttpGet("Error")]
         public IActionResult Error()
         {
             return View();

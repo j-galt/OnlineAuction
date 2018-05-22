@@ -28,6 +28,7 @@ namespace OnlineAuction.Web.Controllers
         {
             var profileSumViewModels = _mapper.Map<IEnumerable<AppUser>, 
                 IEnumerable<ProfileSummaryViewModel>>(_userManager.Users.ToList());
+
             return View(profileSumViewModels);
         }
        
