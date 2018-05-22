@@ -1,0 +1,25 @@
+﻿@model MakeBidViewModel
+
+<form asp-controller="Lot" asp-action="MakeBid">
+    <div class="row">
+        <div class="col-md-5">
+            <input type="submit" value="Make Offer" class="btn btn-outline-info" />
+            <input type="hidden" asp-for="LotID" />
+        </div>
+        <div class="col-md-5">
+            <input asp-for="Amount" class="form-control" />
+        </div>
+    </div>
+</form>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("form").submit(function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+}
+
+

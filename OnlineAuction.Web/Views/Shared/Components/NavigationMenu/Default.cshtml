@@ -1,0 +1,36 @@
+﻿@model NavigationMenuViewModel
+
+<a class="btn btn-block btn-outline-dark"
+   asp-action="List"
+   asp-controller="Lot"
+   asp-route-category=""
+   asp-route-lotPage="1">
+    Home
+</a>
+@foreach (var c in Model.Categories)
+{
+    <a class="btn btn-block
+        @(c.CategoryName.Equals(Model.CurrentCategory) ? "btn-dark" : "btn-light")"
+       asp-action="List"
+       asp-controller="Lot"
+       asp-route-category="@c.CategoryName"
+       asp-route-lotPage="1">
+        @c.CategoryName
+    </a>
+}
+@if (this.User.IsInRole("Admin"))
+{
+    <a class="btn btn-block btn-outline-danger"
+       asp-action="Index"
+       asp-controller="Admin">
+        Admin Page
+    </a>
+}
+@if (this.User.IsInRole("Admin") || this.User.IsInRole("Manager"))
+{
+    <a class="btn btn-block btn-outline-info"
+       asp-action="Index"
+       asp-controller="Manager">
+        Manage Lots
+    </a>
+}

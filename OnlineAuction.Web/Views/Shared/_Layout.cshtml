@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Online Auction</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/lib/Font-Awesome/web-fonts-with-css/css/fontawesome-all.css" />
+    <link rel="stylesheet" href="~/css/lot/lot.css" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+            <a asp-controller="Lot" asp-action="List" class="navbar-brand">ONLINE AUCTION</a>
+            <div class="form-inline">
+                <form asp-controller="Lot" asp-action="Search" class="form-inline mr-4">
+                    <input name="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                @await Html.PartialAsync("_LoginPartial")
+            </div>
+    </nav>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-3">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+        <div class="col-9">
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

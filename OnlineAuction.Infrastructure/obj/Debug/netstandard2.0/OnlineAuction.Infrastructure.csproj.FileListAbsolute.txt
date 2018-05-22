@@ -1,0 +1,12 @@
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\bin\Debug\netstandard2.0\OnlineAuction.Infrastructure.deps.json
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\bin\Debug\netstandard2.0\OnlineAuction.Infrastructure.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\bin\Debug\netstandard2.0\OnlineAuction.Infrastructure.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\bin\Debug\netstandard2.0\OnlineAuction.Core.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\bin\Debug\netstandard2.0\OnlineAuction.Core.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.csprojAssemblyReference.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.csproj.CoreCompileInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.AssemblyInfoInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.AssemblyInfo.cs
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.csproj.CopyComplete
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Infrastructure\obj\Debug\netstandard2.0\OnlineAuction.Infrastructure.pdb

@@ -1,0 +1,16 @@
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Core.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Infrastructure.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.csprojAssemblyReference.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.csproj.CoreCompileInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.AssemblyInfoInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.AssemblyInfo.cs
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Web.deps.json
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Web.runtimeconfig.json
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Web.runtimeconfig.dev.json
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Web.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Web.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Core.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\bin\Debug\netcoreapp2.0\OnlineAuction.Infrastructure.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.csproj.CopyComplete
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Web\obj\Debug\netcoreapp2.0\OnlineAuction.Web.pdb

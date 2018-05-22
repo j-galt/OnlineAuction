@@ -1,0 +1,17 @@
+﻿.nav-pills > .nav-item > a.active {
+    color: #212529;
+    background-color: #e2e6ea;
+}
+
+.nav-pills > .nav-item > a {
+    color: #212529;
+}
+
+.nav-pills > .nav-item > a:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+table.borderless td, table.borderless th {
+    border: none !important;
+}

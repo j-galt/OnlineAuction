@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Lot Details";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="http://placehold.it/210x210" class="img-rounded" alt="Cinque Terre" width="210" height="210">
+        </div>
+        <div class="col-md-4">
+            <h5 id="lotName"></h5>
+            <small class="text-muted" id="lotID">Lot ID: </small>
+            <div class="mt-2">Current price <mark id="price">$</mark></div>
+            <div class="mt-2">Bid increment <mark id="minBid">$</mark></div>
+            <div class="mt-4">
+                @Html.Partial("_MakeBidPartial", new MakeBidViewModel { LotID = Model })
+                <div class="text-danger mt-2">@ViewBag.Error</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h5 class="mb-4" id="sellerID">Seller ID </h5>
+            <hr>
+            <div class="card bg-light border-0 mb-3 mt-4">
+                <div class="card-body">
+                    <div id="duration">
+                        <i class="far fa-clock" aria-hidden="true"></i>
+                    </div>
+                    <div class="mt-2" id="endTime">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i> Ends
+                        <span id="date"></span> at <span id="time"></span>
+                    </div>
+                    <div class="mt-2" id="totalBids"><i class="fa fa-gavel"></i> Totatal bids </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#description">Description</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#bid-history">Bid History</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane container active" id="description"></div>
+                <div class="tab-pane container fade" id="bid-history">
+                    <table class="table borderless">
+                        <thead>
+                            <tr>
+                                <th>Bidder</th>
+                                <th>Date</th>
+                                <th>Unit Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bids"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+                $.ajax({
+                    method: "GET",
+                    url: "/api/lots/" + @Model,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data) {
+                        $("#lotName").append(data.lotName);
+                        $("#lotID").append(data.lotID);
+                        $("#price").append(data.currentPrice);
+                        $("#minBid").append(data.minBid);
+                        $("#sellerID").append(data.appUserID);
+                        $("#duration").append(data.duration);
+                        $("#endTime #date").append(new Date(data.endTime).toLocaleDateString());
+                        $("#endTime #time").append(new Date(data.endTime).toLocaleTimeString());
+                        $("#totalBids").append(data.totalBids);
+                        $("#description").append(data.description);
+                        $.each(data.bids, function (key, bid) {
+                            var row = "<tr><td>" + bid.appUserID + "</td>" +
+                                "<td>" + new Date(bid.bidTime) + "</td>" +
+                                "<td>" + bid.amount + "</td></tr>";
+                            $("#bids").append(row);
+                        });
+                    },
+                    failure: function (data) {
+                        alert(data.responseText);
+                    },
+                });
+            });
+    </script>
+}

@@ -1,0 +1,9 @@
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\bin\Debug\netstandard2.0\OnlineAuction.Core.deps.json
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\bin\Debug\netstandard2.0\OnlineAuction.Core.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\bin\Debug\netstandard2.0\OnlineAuction.Core.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.csproj.CoreCompileInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.AssemblyInfoInputs.cache
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.AssemblyInfo.cs
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.dll
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.pdb
+E:\Studies\epam\OnlineAuction\OnlineAuction.Core\obj\Debug\netstandard2.0\OnlineAuction.Core.csprojAssemblyReference.cache

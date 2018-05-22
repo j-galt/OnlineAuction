@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ProfileSummaryViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>List of users</h2>
+<div class="card-header border-0 mb-2" style="width: 8rem;">
+    <a asp-action="RolesList" asp-controller="Admin">
+        <i class="fa fa-id-card fa-2x" style="vertical-align: middle;"></i> Roles
+    </a>
+</div>
+<table class="table">
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Email</td>
+            <td>
+                <a class="btn btn-outline-secondary" asp-action="EditUserProfile"
+                   asp-route-userid="@user.UserID">Edit profile</a>
+            </td>
+        </tr>
+    }
+</table>

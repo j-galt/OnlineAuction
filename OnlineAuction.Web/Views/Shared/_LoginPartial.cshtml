@@ -1,0 +1,15 @@
+﻿@if (Context.User.Identity.IsAuthenticated)
+{
+<form asp-controller="Account" asp-action="LogOut" method="post" id="logoutForm">
+    <small class="text-muted">@User.Identity.Name</small> |
+    <a asp-action="Index" asp-controller="Profile"><i class="fas fa-user"></i> Account</a> |
+    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+</form>
+}
+else
+{
+    <form class="navbar-right">
+        <button asp-action="Login" asp-controller="Account" class="btn navbar-btn">Log in</button>
+        <button asp-action="Register" asp-controller="Account" class="btn navbar-btn">Sign up</button>
+    </form>
+}

@@ -1,0 +1,18 @@
+﻿@model LotsListViewModel
+@{
+    ViewData["Title"] = "Lots";
+}
+
+<h3>Available auctions</h3>
+<hr />
+<div class="card-columns">
+    @foreach (var l in Model.Lots)
+    {
+        @Html.Partial("_LotSummaryPartial", l)
+    }
+</div>
+<div page-model="@Model.PagingInfo"
+    page-action="List" page-classes-enabled="true" page-class="btn" page-class-normal="btn-light" 
+    page-class-selected="btn-dark" page-url-category="@Model.CurrentCategory"
+    class="btn-group pull-right m-1">
+</div>

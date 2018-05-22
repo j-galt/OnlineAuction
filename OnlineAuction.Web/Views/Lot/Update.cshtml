@@ -1,0 +1,97 @@
+﻿@model LotCreateViewModel
+@{
+    ViewData["Title"] = "Update Lot";
+}
+
+<form asp-controller="Lots" asp-action="UpdateLot" method="post" class="form-horizontal">
+    <h4>@Model.LotName</h4>
+    <hr />
+    <div class="text-danger" id="errors"><ul></ul></div>
+    <div class="form-group">
+        <label asp-for="LotName" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="LotName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="Description" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryID" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <select asp-for="CategoryID" asp-items="@Model.Categories" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="StartPrice" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="StartPrice" class="form-control" />
+            <span class="text-danger" id="StartPriceError"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="MinBid" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="MinBid" class="form-control" />
+            <span class="text-danger" id="MinBidError"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndTime" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="EndTime" class="form-control" />
+            <span class="text-danger" id="EndTimeError"></span>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-outline-secondary">Update Lot</button>
+    </div>
+</form>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var url = '@Url.Action("Index", "Manager")';
+
+            $("form").submit(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url: "/api/lots/" + @Model.LotID,
+                    contentType: "application/json",
+                    method: "PUT",
+                    data: JSON.stringify({
+                        lotName: this.elements["LotName"].value,
+                        description: this.elements["Description"].value,
+                        categoryID: this.elements["CategoryID"].value,
+                        startPrice: this.elements["StartPrice"].value,
+                        minBid: this.elements["MinBid"].value,
+                        endTime: this.elements["EndTime"].value
+                    }),
+                    success: function (data) {
+                        window.location.href = url;
+                    },
+                    error: function (jxqr, error, status) {
+                        $('#errors').empty();
+                        var response = jQuery.parseJSON(jxqr.responseText);
+                        $.each(response, function (key, value) {
+                            $('#errors').append('<li>' + response[key] + '</li>');
+                        });
+                        $('span').empty();
+                        if (response['endTime']) {
+                            $('#EndTimeError').append(response['endTime'] );
+                        }
+                        if (response['minBid']) {
+                            $('#MinBidError').append(response['minBid']);
+                        }
+                        if (response['startPrice']) {
+                            $('#StartPriceError').append( response['startPrice'] );
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

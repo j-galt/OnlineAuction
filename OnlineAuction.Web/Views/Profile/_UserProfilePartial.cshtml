@@ -1,0 +1,41 @@
+﻿@model IEnumerable<LotSummaryViewModel>
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>User Lots</h2>
+<div class="row mb-3">
+    <div class="card-header border-0">
+        <a asp-action="Create" asp-controller="Lot"><i class="fa fa-plus fa-2x" style="vertical-align: middle;"></i> Create New</a>
+    </div>
+    <div class="card-header border-0 ml-1">
+        <a asp-action="Index" asp-controller="Profile"><i class="fa fa-toggle-on fa-2x" style="vertical-align: middle;"></i> Active Lots</a>
+    </div>
+    <div class="card-header border-0 ml-1">
+        <a asp-action="SoldLots" asp-controller="Profile"><i class="fa fa-exchange-alt fa-2x" style="vertical-align: middle;"></i> Sold Lots</a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>End Time</th>
+            <th>Current Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>@item.LotID</td>
+                <td>@item.Name</td>
+                <td>@item.EndTime</td>
+                <td>@item.CurrentPrice</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Lot" asp-route-id="@item.LotID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

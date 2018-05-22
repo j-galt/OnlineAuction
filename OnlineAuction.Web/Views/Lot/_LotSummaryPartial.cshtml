@@ -1,0 +1,12 @@
+﻿@model LotSummaryViewModel
+
+<a class="card" asp-action="Details" asp-route-id="@Model.LotID" 
+   style="text-decoration: none; color: inherit;">
+    <img class="card-img-top" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+    </div>
+    <div class="card-footer bg-light">
+        <small class="text-secondary">End Time: @Model.EndTime</small>
+    </div>
+</a>
