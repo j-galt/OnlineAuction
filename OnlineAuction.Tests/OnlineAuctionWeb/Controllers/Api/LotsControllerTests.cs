@@ -20,12 +20,12 @@ namespace OnlineAuction.Tests.OnlineAuctionWeb.Controllers.Api
             Assert.IsType<NotFoundResult>(result);
         }
 
+
         [Fact]
-        public async Task GetPhoneReturnsBadRequestResultWhenIdIsNull()
+        public async Task GetLotReturnsBadRequestResultWhenIdIsNull()
         {
             var mockLotService = new Mock<ILotService>();
             var controller = new LotsController(null, mockLotService.Object, null);
-
             var result = await controller.CreateLot(null);
 
             Assert.IsType<BadRequestObjectResult>(result);
