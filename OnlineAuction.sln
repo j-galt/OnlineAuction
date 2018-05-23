@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineAuction.Core", "Onlin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineAuction.Web", "OnlineAuction.Web\OnlineAuction.Web.csproj", "{7EC594D3-D98D-40E7-B915-FBC9EEB6DDD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Tests", "XUnitTestProject1\OnlineAuction.Tests.csproj", "{734FBAFB-509B-40DA-A9C5-E340467F43E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Tests", "OnlineAuction.Tests\OnlineAuction.Tests.csproj", "{CEF81D08-F07C-40C6-B483-D0A8F3498A8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{7EC594D3-D98D-40E7-B915-FBC9EEB6DDD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EC594D3-D98D-40E7-B915-FBC9EEB6DDD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EC594D3-D98D-40E7-B915-FBC9EEB6DDD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{734FBAFB-509B-40DA-A9C5-E340467F43E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{734FBAFB-509B-40DA-A9C5-E340467F43E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{734FBAFB-509B-40DA-A9C5-E340467F43E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{734FBAFB-509B-40DA-A9C5-E340467F43E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF81D08-F07C-40C6-B483-D0A8F3498A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF81D08-F07C-40C6-B483-D0A8F3498A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF81D08-F07C-40C6-B483-D0A8F3498A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF81D08-F07C-40C6-B483-D0A8F3498A8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
